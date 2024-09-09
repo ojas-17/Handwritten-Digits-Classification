@@ -34,12 +34,13 @@ async function loadModel() {
     return model;
 }
 
+let model;
 async function run() {
     const data = new MnistData();
     await data.load();
     // await showExamples(data);
 
-    let model;
+    // let model;
 
     // Load the model if it exists, otherwise train and save a new one.
     try {
@@ -291,7 +292,7 @@ document.getElementById('predictButton').addEventListener('click', async () => {
     }
 
     const tensor = preprocessCanvasImage(canvas);
-    const model = await loadModel();
+    // const model = await loadModel();
     const prediction = model.predict(tensor);
     const predictionArray = prediction.arraySync()[0]; // Get the array of predictions
 
